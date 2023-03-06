@@ -11,10 +11,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-  console.log("index");
- }); 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + "/index.html"));
+});
 
 // use when starting application locally
 const mongoUrlLocal = "mongodb://admin:password@localhost:27017";
@@ -26,7 +25,7 @@ const mongoUrlDocker = "mongodb://admin:password@mongodb";
 const mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 // "user-account" in demo with docker. "my-db" in demo with docker-compose
-const databaseName = "my-db";
+const databaseName = "user-account";
 
 
 app.get('/profile-picture', (req, res) => {
@@ -58,7 +57,7 @@ app.post('/update-profile', function (req, res) {
 });
 
 app.get('/get-profile', function (req, res) {
-  const response = {};
+  let response = {};
   // Connect to the db
   MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
     if (err) throw err;
@@ -79,5 +78,5 @@ app.get('/get-profile', function (req, res) {
 });
 
 app.listen(port, () => {
-  console.log("app listening on port 3000! http://localhost:3000/ ");
+  console.log("app listening on port " + port + "! http://localhost:3000/ ");
 });
