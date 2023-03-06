@@ -2,7 +2,9 @@
 
 ## Setup
 
-### Docker commands
+### Run MongoDB manually
+
+Run containers manually in same network
 
 ```bash
 # to setup mongo in mongo-network
@@ -24,6 +26,18 @@ docker run -d \
     mongo-express
 ```
 
-### Mongo setup
+### Setup Mongo
 
-- add new db for mongo on <http://0.0.0.0:8081>
+- add new db 'user-account' for mongo on <http://0.0.0.0:8081>
+
+### Run app
+
+```bash
+node app/sever.js
+```
+
+### Optional - run mongo with docker-compose file
+
+```bash
+docker compose up -d
+```
