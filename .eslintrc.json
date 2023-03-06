@@ -1,10 +1,11 @@
 {
     "env": {
         "browser": true,
+        "commonjs": true,
         "es2021": true,
         "node": true
     },
-    "extends": "google",
+    "extends": "airbnb-base",
     "overrides": [
     ],
     "parserOptions": {

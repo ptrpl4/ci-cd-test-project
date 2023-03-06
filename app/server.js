@@ -1,8 +1,7 @@
-/* eslint-disable semi */
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const {MongoClient} = require('mongodb');
+const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -24,14 +23,14 @@ const mongoUrlLocal = 'mongodb://admin:password@localhost:27017';
 const mongoUrlDocker = 'mongodb://admin:password@mongodb';
 
 // pass these options to mongo client connect request to avoid DeprecationWarning for current Server Discovery and Monitoring engine
-const mongoClientOptions = {useNewUrlParser: true, useUnifiedTopology: true};
+const mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
 // "user-account" in demo with docker. "my-db" in demo with docker-compose
 const databaseName = 'user-account';
 
 app.get('/profile-picture', (req, res) => {
   const img = fs.readFileSync(path.join(__dirname, 'images/profile-1.jpg'));
-  res.writeHead(200, {'Content-Type': 'image/jpg'});
+  res.writeHead(200, { 'Content-Type': 'image/jpg' });
   res.end(img, 'binary');
 });
 
@@ -44,10 +43,10 @@ app.post('/update-profile', (req, res) => {
     const db = client.db(databaseName);
     userObj.userid = 1;
 
-    const myquery = {userid: 1};
-    const newvalues = {$set: userObj};
+    const myquery = { userid: 1 };
+    const newvalues = { $set: userObj };
 
-    db.collection('users').updateOne(myquery, newvalues, {upsert: true}, (err, res) => {
+    db.collection('users').updateOne(myquery, newvalues, { upsert: true }, (err, res) => {
       if (err) throw err;
       client.close();
     });
@@ -64,7 +63,7 @@ app.get('/get-profile', (req, res) => {
 
     const db = client.db(databaseName);
 
-    const myquery = {userid: 1};
+    const myquery = { userid: 1 };
 
     db.collection('users').findOne(myquery, (err, result) => {
       if (err) throw err;
