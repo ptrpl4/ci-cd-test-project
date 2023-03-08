@@ -33,7 +33,7 @@ docker run -d \
 ### 1.2 Optional - run mongo + mongo-express with docker-compose file
 
 ```bash
-docker compose up -d
+docker compose up
 ```
 
 ### Setup Mongo
@@ -57,6 +57,22 @@ docker build -t ci-cd-app:1.0 .
 docker run -d \
     -p 3000:3000 \
     --name ci-cd-app \
-    --net mongo-network \
+    --net ci-cd-test-project_default \
     ci-cd-app:1.0
 ```
+
+### 1.3 - Run with docker compose
+
+uncomment lines 4-7
+
+```bash
+docker compose up
+```
+
+## Results
+
+### Access to apps
+
+web app - <http://localhost:3000/>
+mongo (no user interface) <http://localhost:27017/>
+mongo-express <http://localhost:8081/>
