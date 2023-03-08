@@ -1,9 +1,10 @@
 version: '3'
 services:
+  # uncomment to start one apps with compose file
   # my-app:
-  # image: ${docker-registry}/my-app:1.0
-  # ports:
-  # - 3000:3000
+  #   image: ci-cd-app:1.0
+  #   ports:
+  #   - 3000:3000
   mongodb:
     image: mongo
     ports:
