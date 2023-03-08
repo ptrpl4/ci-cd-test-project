@@ -38,7 +38,7 @@ app.get('/profile-picture', (req, res) => {
 app.post('/update-profile', (req, res) => {
   const userObj = req.body;
 
-  MongoClient.connect(mongoUrlLocal, mongoClientOptions, (err, client) => {
+  MongoClient.connect(mongoUrlDocker, mongoClientOptions, (err, client) => {
     if (err) throw err;
 
     const db = client.db(databaseName);
@@ -59,7 +59,7 @@ app.post('/update-profile', (req, res) => {
 app.get('/get-profile', (req, res) => {
   let response = {};
   // Connect to the db
-  MongoClient.connect(mongoUrlLocal, mongoClientOptions, (err, client) => {
+  MongoClient.connect(mongoUrlDocker, mongoClientOptions, (err, client) => {
     if (err) throw err;
 
     const db = client.db(databaseName);
