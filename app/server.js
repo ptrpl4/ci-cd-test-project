@@ -10,8 +10,10 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000;
+
 // use when starting application locally
-const mongoUrlLocal = 'mongodb://admin:password@localhost:27017';
+// const mongoUrlLocal = 'mongodb://admin:password@localhost:27017';
+
 // use when starting application as docker container
 const mongoUrlDocker = 'mongodb://admin:password@mongodb';
 // pass these options to mongo client connect request to avoid DeprecationWarning for current Server Discovery and Monitoring engine
