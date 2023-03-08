@@ -1,10 +1,14 @@
 # Readme
 
+This is a test project containing web-app (frontend part + backend server + mongo app).
+
 ## Setup
 
-### Run MongoDB manually
+### 1 - Run mongo with docker
 
 Run containers manually in same network
+
+### 1.1 - Run mongo with docker manually
 
 ```bash
 # to setup mongo in mongo-network
@@ -26,18 +30,33 @@ docker run -d \
     mongo-express
 ```
 
+### 1.2 Optional - run mongo + mongo-express with docker-compose file
+
+```bash
+docker compose up -d
+```
+
 ### Setup Mongo
 
 - add new db 'user-account' for mongo on <http://0.0.0.0:8081>
 
 ### Run app
 
+### 1.1 - Run locally
+
 ```bash
 node app/sever.js
 ```
 
-### Optional - run mongo with docker-compose file
+### 1.2 - Run dockerfile
 
 ```bash
-docker compose up -d
+# build
+docker build -t ci-cd-app:1.0 .
+# start container
+docker run -d \
+    -p 3000:3000 \
+    --name ci-cd-app \
+    --net mongo-network \
+    ci-cd-app:1.0
 ```
