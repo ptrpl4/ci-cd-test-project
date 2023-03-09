@@ -19,6 +19,7 @@ docker run -d \
     --name mongodb \
     --net mongo-network \
     mongo
+
 # to setup mongo-express in mongo-network
 docker run -d \
     -p 8081:8081 \
@@ -53,6 +54,7 @@ node app/sever.js
 ```bash
 # build
 docker build -t ci-cd-app:1.0 .
+
 # start container
 docker run -d \
     -p 3000:3000 \
@@ -63,9 +65,10 @@ docker run -d \
 
 ### 1.3 - Run with docker compose
 
-uncomment lines 4-7
+First - uncomment lines 4-7 in docker-compose.yaml
 
 ```bash
+# then up compose
 docker compose up
 ```
 
@@ -73,6 +76,6 @@ docker compose up
 
 ### Access to apps
 
-web app - <http://localhost:3000/>
-mongo (no user interface) <http://localhost:27017/>
-mongo-express <http://localhost:8081/>
+web app - <http://localhost:3000/>  
+mongo (no user interface) <http://localhost:27017/>  
+mongo-express <http://localhost:8081/>  
