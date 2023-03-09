@@ -73,6 +73,6 @@ docker compose up
 
 ### Access to apps
 
-web app - <http://localhost:3000/>
-mongo (no user interface) <http://localhost:27017/>
-mongo-express <http://localhost:8081/>
+web app - <http://localhost:3000/>  
+mongo (no user interface) <http://localhost:27017/>  
+mongo-express <http://localhost:8081/>  
